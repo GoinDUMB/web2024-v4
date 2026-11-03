@@ -1,0 +1,475 @@
+:root {
+    --bg: #17161e;
+    --accent: #e3fe0f;
+    --white: #ffffff;
+    --gray: #838383;
+    --black: #000000;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+
+    background-color: var(--bg);
+    color: var(--white);
+
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.8rem;
+    line-height: 1.4;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.page-header {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 3rem auto 0;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin-right: 3rem;
+}
+
+.nav-link,
+.nav-button {
+    font-size: 1.6rem;
+}
+
+.nav-button {
+    padding: 0;
+
+    background-color: transparent;
+    color: var(--white);
+
+    border: 0;
+}
+
+.nav-dapp {
+    color: var(--accent);
+}
+
+.hero {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 10rem auto 0;
+}
+
+.hero-title {
+    max-width: 85.4rem;
+    margin: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 9rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-description {
+    max-width: 62.6rem;
+    margin-top: 5rem;
+}
+
+.hero-buttons {
+    margin-top: 7rem;
+}
+
+.button {
+    display: inline-block;
+
+    padding: 1.8rem 3rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2.4rem;
+    line-height: 1.4;
+
+    border-radius: 1.5rem;
+}
+
+.button-primary {
+    background-color: var(--accent);
+    color: var(--black);
+
+    border: 0.1rem solid var(--accent);
+}
+
+.button-outline {
+    background-color: transparent;
+    color: var(--accent);
+
+    border: 0.1rem solid var(--accent);
+}
+
+.hero-buttons .button-outline {
+    margin-left: 2rem;
+}
+
+.hero-stats {
+    margin-top: 15rem;
+}
+
+.hero-stat {
+    display: inline-block;
+    margin-right: 6rem;
+}
+
+.hero-stat-label {
+    color: var(--gray);
+
+    font-size: 1.6rem;
+}
+
+.hero-stat-value {
+    margin: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.advantages {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 20rem auto 0;
+}
+
+.section-title {
+    margin: 0 0 7rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.advantages-list {
+    font-size: 0;
+}
+
+.advantage-card {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 30%;
+    min-height: 24rem;
+
+    margin-right: 3%;
+    margin-bottom: 3rem;
+    padding: 3rem;
+
+    color: var(--white);
+    background-color: transparent;
+
+    border: 0.1rem solid var(--gray);
+    border-radius: 1.5rem;
+
+    font-size: 1.8rem;
+}
+
+.advantage-title {
+    margin: 0 0 2rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: var(--accent);
+}
+
+.roadmap {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 20rem auto 0;
+}
+
+.roadmap-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.roadmap-phase {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 22%;
+
+    margin-right: 2%;
+}
+
+.roadmap-number {
+    margin: 0 0 3rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+
+    color: var(--accent);
+}
+
+.roadmap-tasks {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.roadmap-tasks li {
+    margin-bottom: 1.5rem;
+
+    color: var(--gray);
+}
+
+.info-strip {
+    margin: 15rem 0 0;
+    padding: 2rem 5.2%;
+
+    background-color: var(--accent);
+    color: var(--black);
+
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.tokenomics {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 12rem auto 0;
+}
+
+.tokenomics-table {
+    width: 100%;
+    max-width: 90rem;
+
+    border-collapse: collapse;
+}
+
+.tokenomics-table th,
+.tokenomics-table td {
+    padding: 2rem 0;
+
+    border-bottom: 0.1rem solid var(--gray);
+
+    font-size: 2rem;
+    text-align: left;
+}
+
+.tokenomics-table th {
+    color: var(--gray);
+    font-weight: 400;
+}
+
+.tokenomics-table td {
+    color: var(--white);
+}
+
+.token-address {
+    max-width: 90rem;
+
+    margin-top: 4rem;
+    padding: 2rem;
+
+    border: 0.1rem solid var(--gray);
+    border-radius: 1.5rem;
+}
+
+.token-address code {
+    color: var(--accent);
+}
+
+.copy-button {
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--accent);
+    color: var(--black);
+
+    border: 0;
+    border-radius: 1rem;
+}
+
+.start {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 15rem auto 0;
+}
+
+.start p {
+    max-width: 80rem;
+
+    margin: 0 0 3rem;
+
+    color: var(--gray);
+}
+
+.start .button {
+    margin-top: 3rem;
+}
+
+.project-promo {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 15rem auto;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 4rem;
+    line-height: 1.3;
+}
+
+.project-promo strong {
+    color: var(--accent);
+}
+
+.submit-project {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 15rem auto 0;
+}
+
+.project-form {
+    max-width: 90rem;
+}
+
+.form-field {
+    margin-bottom: 3rem;
+}
+
+.form-label {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+}
+
+.form-control {
+    width: 80rem;
+    max-width: 90%;
+
+    padding: 1.5rem 2rem;
+
+    background-color: transparent;
+    color: var(--white);
+
+    border: 0.1rem solid var(--gray);
+    border-radius: 1rem;
+
+    font-family: inherit;
+    font-size: 1.6rem;
+}
+
+.form-textarea {
+    min-height: 15rem;
+}
+
+.form-note {
+    max-width: 80rem;
+
+    margin-top: 3rem;
+
+    color: var(--gray);
+    font-size: 1.4rem;
+}
+
+.faq {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 15rem auto 0;
+}
+
+.faq-description {
+    max-width: 65rem;
+
+    margin-bottom: 3rem;
+
+    color: var(--gray);
+}
+
+.faq-list {
+    max-width: 100rem;
+
+    margin: 7rem 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.faq-item {
+    border-top: 0.1rem solid var(--gray);
+}
+
+.faq-item:last-child {
+    border-bottom: 0.1rem solid var(--gray);
+}
+
+.faq-button {
+    width: 100%;
+
+    padding: 2.5rem 0;
+
+    background-color: transparent;
+    color: var(--white);
+
+    border: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2.4rem;
+    text-align: left;
+}
+
+.page-footer {
+    width: 89.6%;
+    max-width: 172rem;
+
+    margin: 15rem auto 0;
+    padding: 5rem 0;
+
+    border-top: 0.1rem solid var(--gray);
+}
+
+.footer-list {
+    margin: 0 0 3rem;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-list li {
+    display: inline-block;
+    margin-right: 3rem;
+}
+
+.page-footer p {
+    color: var(--gray);
+    font-size: 1.4rem;
+}
