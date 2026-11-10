@@ -6,6 +6,16 @@
     --black: #000000;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 89.6%;
+    max-width: 172rem;
+    margin: 0 auto;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -31,10 +41,7 @@ button {
 }
 
 .page-header {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 3rem auto 0;
+    margin-top: 3rem;
 }
 
 .nav-list {
@@ -68,10 +75,7 @@ button {
 }
 
 .hero {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 10rem auto 0;
+    margin-top: 10rem;
 }
 
 .hero-title {
@@ -148,10 +152,7 @@ button {
 }
 
 .advantages {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 20rem auto 0;
+    margin-top: 20rem;
 }
 
 .section-title {
@@ -199,10 +200,7 @@ button {
 }
 
 .roadmap {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 20rem auto 0;
+    margin-top: 20rem;
 }
 
 .roadmap-list {
@@ -256,10 +254,7 @@ button {
 }
 
 .tokenomics {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 12rem auto 0;
+    margin-top: 12rem;
 }
 
 .tokenomics-table {
@@ -294,6 +289,8 @@ button {
     margin-top: 4rem;
     padding: 2rem;
 
+    overflow-x: auto;
+
     border: 0.1rem solid var(--gray);
     border-radius: 1.5rem;
 }
@@ -314,10 +311,7 @@ button {
 }
 
 .start {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 15rem auto 0;
+    margin-top: 15rem;
 }
 
 .start p {
@@ -348,10 +342,7 @@ button {
 }
 
 .submit-project {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 15rem auto 0;
+    margin-top: 15rem;
 }
 
 .project-form {
@@ -401,10 +392,7 @@ button {
 }
 
 .faq {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 15rem auto 0;
+    margin-top: 15rem;
 }
 
 .faq-description {
@@ -448,10 +436,7 @@ button {
 }
 
 .page-footer {
-    width: 89.6%;
-    max-width: 172rem;
-
-    margin: 15rem auto 0;
+    margin-top: 15rem;
     padding: 5rem 0;
 
     border-top: 0.1rem solid var(--gray);
@@ -472,4 +457,14 @@ button {
 .page-footer p {
     color: var(--gray);
     font-size: 1.4rem;
+}
+
+.main-nav {
+    position: relative;
+}
+
+.nav-dapp-item {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
