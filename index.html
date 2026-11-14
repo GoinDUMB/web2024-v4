@@ -20,10 +20,21 @@
 </head>
 
 <body>
-    <header class="page-header">
+    <header class="page-header" id="top">
         <div class="container">
             <nav class="main-nav">
                 <ul class="nav-list">
+
+                    <li class="nav-brand-item">
+                        <a href="#top">
+                            <img
+                                class="nav-brand-logo"
+                                src="images/logo.svg"
+                                alt="HexaCore"
+                            >
+                        </a>
+                    </li>
+
                     <li>
                         <button class="nav-button" type="button">Menu</button>
                     </li>
@@ -52,7 +63,21 @@
         <section class="hero">
             <div class="container">
 
-                <h1 class="hero-title">Decentralized AI/ML computing</h1>
+                <h1 class="hero-title">
+                    Decentralized <span class="hero-title-accent">AI/ML</span> computing
+                </h1>
+
+                <img
+                    class="hero-wave"
+                    src="images/hero-wave.svg"
+                    alt=""
+                >
+
+                <img
+                    class="hero-circle"
+                    src="images/hero-circle.svg"
+                    alt=""
+                >
 
                 <p class="hero-description">
                     As well as key features of the project's structure,
@@ -60,8 +85,22 @@
                 </p>
 
                 <div class="hero-buttons">
-                    <a class="button button-primary" href="#">View Node</a>
-                    <button class="button button-outline" type="button">Buy $GPU</button>
+                    <a class="button button-primary" href="#">
+                        View Node
+                        <img
+                            class="button-icon button-icon-view"
+                            src="images/view-node-icon.svg"
+                            alt=""
+                        >
+                    </a>
+                    <button class="button button-outline" type="button">
+                        Buy $GPU
+                        <img
+                            class="button-icon button-icon-buy"
+                            src="images/buy-gpu-icon.svg"
+                            alt=""
+                        >
+                    </button>
                 </div>
 
                 <dl class="hero-stats">
@@ -76,6 +115,20 @@
                     </div>
                 </dl>
 
+                <div class="hero-graphic">
+                    <img
+                        class="hero-image"
+                        src="images/hero-graphic.webp"
+                        alt=""
+                    >
+
+                    <img
+                        class="hero-gradient"
+                        src="images/hero-gradient.svg"
+                        alt=""
+                    >
+                </div>
+
             </div>
         </section>
 
@@ -84,8 +137,18 @@
                 <h2 class="section-title">Why choose us</h2>
 
                 <div class="advantages-list">
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">Subnetix</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-subnetix.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">Subnetix</h3>
+                        </div>
+
                         <p>
                             Tap into the burgeoning Bittensor subnet ecosystem.
                             Participate in a vibrant derivatives market, fueling
@@ -93,8 +156,18 @@
                         </p>
                     </div>
 
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">Space</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-space.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">Space</h3>
+                        </div>
+
                         <p>
                             Access the processing power you need, when you need it.
                             Scale projects seamlessly with a decentralized marketplace
@@ -102,8 +175,18 @@
                         </p>
                     </div>
 
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">Craft</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-craft.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">Craft</h3>
+                        </div>
+
                         <p>
                             Accelerate development and deployment with our intuitive,
                             no-code AI application-building platform, empowering users
@@ -111,8 +194,18 @@
                         </p>
                     </div>
 
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">Foundry</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-foundry.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">Foundry</h3>
+                        </div>
+
                         <p>
                             We use blockchain technology to keep your data, payment
                             funds, and usage secure. It adds an extra layer of
@@ -120,8 +213,18 @@
                         </p>
                     </div>
 
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">Nodes</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-nodes.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">Nodes</h3>
+                        </div>
+
                         <p>
                             Access the processing power you need, when you need it.
                             Scale projects seamlessly with a decentralized marketplace
@@ -129,14 +232,25 @@
                         </p>
                     </div>
 
+
                     <div class="advantage-card">
-                        <h3 class="advantage-title">GPUs</h3>
+                        <div class="advantage-heading">
+                            <img
+                                class="advantage-icon"
+                                src="images/advantage-gpus.svg"
+                                alt=""
+                            >
+
+                            <h3 class="advantage-title">GPUs</h3>
+                        </div>
+
                         <p>
                             Tap into the burgeoning Bittensor subnet ecosystem.
                             Participate in a vibrant derivatives market, fueling
                             innovation and growth for Tensor Processing Unit.
                         </p>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -205,29 +319,20 @@
                         <tr>
                             <th scope="row">Token</th>
                             <td>Vuetoken</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">Total supply</th>
-                            <td>100M</td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">Chain</th>
-                            <td>TRC-20</td>
-                        </tr>
-
-                        <tr>
                             <th scope="row">Symbol</th>
                             <td>VUET</td>
                         </tr>
 
                         <tr>
+                            <th scope="row">Total supply</th>
+                            <td>100M</td>
                             <th scope="row">Launch</th>
                             <td>Fair launch</td>
                         </tr>
 
                         <tr>
+                            <th scope="row">Chain</th>
+                            <td>TRC-20</td>
                             <th scope="row">Taxes</th>
                             <td>5% / 5%</td>
                         </tr>
@@ -236,7 +341,18 @@
 
                 <div class="token-address">
                     <code>0x1258d60b224c0c5cd888d37bbf31aa5fcfb7e870</code>
-                    <button class="copy-button" type="button">Copy</button>
+
+                    <button
+                        class="copy-button"
+                        type="button"
+                        aria-label="Copy token address"
+                    >
+                        <img
+                            class="copy-icon"
+                            src="images/copy-icon.svg"
+                            alt=""
+                        >
+                    </button>
                 </div>
             </div>
         </section>
@@ -262,6 +378,12 @@
                 </p>
 
                 <a class="button button-primary" href="#submit-project">Get started</a>
+
+                <img
+                    class="start-image"
+                    src="images/start-graphic.webp"
+                    alt=""
+                >
             </div>
         </section>
         <p class="project-promo">
@@ -334,7 +456,10 @@
                     If you have another question, you can email us.
                 </p>
 
-                <a class="button button-outline" href="#">Write to us</a>
+                <a class="button button-outline" href="#">
+                    Write to us
+                    <img class="button-icon faq-mail-icon" src="images/faq-mail.svg" alt="">
+                </a>
 
                 <ul class="faq-list">
                     <li class="faq-item">
@@ -372,6 +497,9 @@
     </main>
     <footer class="page-footer">
         <div class="container">
+            <a href="#top">
+                <img class="footer-logo" src="images/logo.svg" alt="HexaCore">
+            </a>
             <nav>
                 <ul class="footer-list">
                     <li><a href="#advantages">Advantages</a></li>
@@ -382,7 +510,12 @@
                     <li><a href="#">Buy</a></li>
                 </ul>
             </nav>
-
+            <div class="footer-socials">
+                <img src="images/footer-social-1.svg" alt="">
+                <img src="images/footer-social-2.svg" alt="">
+                <img src="images/footer-telegram.svg" alt="">
+                <img src="images/footer-x.svg" alt="">
+            </div>
             <p>&copy; NFTNode, 2024</p>
         </div>
     </footer>

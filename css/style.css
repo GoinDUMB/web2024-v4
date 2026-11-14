@@ -6,18 +6,21 @@
     --black: #000000;
 }
 
-* {
+html {
     box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 .container {
     width: 89.6%;
     max-width: 172rem;
     margin: 0 auto;
-}
-
-html {
-    font-size: 62.5%;
 }
 
 body {
@@ -45,14 +48,23 @@ button {
 }
 
 .nav-list {
+    width: 68.7rem;
+    height: 6rem;
+
     margin: 0;
-    padding: 0;
+    padding: 1.6rem 3rem;
 
     list-style: none;
+
+    background-image: url("../images/header-background.png");
+    background-color: var(--bg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 .nav-list li {
     display: inline-block;
+    vertical-align: middle;
     margin-right: 3rem;
 }
 
@@ -71,7 +83,25 @@ button {
 }
 
 .nav-dapp {
+    display: block;
+
+    width: 21rem;
+    height: 6rem;
+
+    background-color: transparent;
     color: var(--accent);
+
+    border: 0.2rem solid var(--accent);
+    border-radius: 1.5rem;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2rem;
+    line-height: 5.6rem;
+    text-align: center;
+}
+
+.nav-list .nav-dapp-item {
+    margin-right: 0;
 }
 
 .hero {
@@ -153,6 +183,44 @@ button {
 
 .advantages {
     margin-top: 20rem;
+    position: relative;
+}
+
+main {
+    isolation: isolate;
+    overflow-x: clip;
+}
+
+.advantages::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -45rem;
+    left: 0;
+    right: 0;
+    height: 255rem;
+    pointer-events: none;
+
+    background-color: transparent;
+    background-image:
+        url("../images/background-rings-left.svg"),
+        url("../images/background-rings-right.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right 85.2rem;
+    background-size: 78.4rem auto, 53.5rem auto;
+}
+
+.hero-graphic::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -19rem;
+    left: -44.8rem;
+    width: 130.5rem;
+    height: 132.9rem;
+    pointer-events: none;
+
+    background: transparent url("../images/hero-glow.svg") center / contain no-repeat;
 }
 
 .section-title {
@@ -166,37 +234,6 @@ button {
 
 .advantages-list {
     font-size: 0;
-}
-
-.advantage-card {
-    display: inline-block;
-    vertical-align: top;
-
-    width: 30%;
-    min-height: 24rem;
-
-    margin-right: 3%;
-    margin-bottom: 3rem;
-    padding: 3rem;
-
-    color: var(--white);
-    background-color: transparent;
-
-    border: 0.1rem solid var(--gray);
-    border-radius: 1.5rem;
-
-    font-size: 1.8rem;
-}
-
-.advantage-title {
-    margin: 0 0 2rem;
-
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 3.2rem;
-    font-weight: 500;
-    line-height: 1.2;
-
-    color: var(--accent);
 }
 
 .roadmap {
@@ -220,13 +257,33 @@ button {
 }
 
 .roadmap-number {
+    width: 12.5rem;
+    height: 12.5rem;
+
     margin: 0 0 3rem;
+
+    background-color: var(--white);
+    color: var(--bg);
+
+    border: 0.1rem solid transparent;
+    border-radius: 50%;
 
     font-family: "Space Grotesk", sans-serif;
     font-size: 5rem;
     font-weight: 700;
+    line-height: 12.5rem;
+    text-align: center;
+}
 
-    color: var(--accent);
+.roadmap-phase:nth-child(3) .roadmap-number {
+    background-color: var(--accent);
+    box-shadow: 0 0.4rem 1.5rem rgba(227, 254, 15, 0.25);
+}
+
+.roadmap-phase:nth-child(4) .roadmap-number {
+    background-color: var(--bg);
+    color: var(--gray);
+    border-color: var(--gray);
 }
 
 .roadmap-tasks {
@@ -237,9 +294,36 @@ button {
 }
 
 .roadmap-tasks li {
+    position: relative;
+
     margin-bottom: 1.5rem;
+    padding-left: 3rem;
 
     color: var(--gray);
+}
+
+.roadmap-tasks li::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+
+    width: 2rem;
+    height: 1rem;
+
+    background-image: url("../images/roadmap-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.roadmap-phase:nth-child(3) .roadmap-tasks li {
+    color: var(--accent);
+}
+
+.roadmap-phase:nth-child(4) .roadmap-tasks li {
+    opacity: 0.5;
 }
 
 .info-strip {
@@ -253,62 +337,85 @@ button {
     font-weight: 500;
 }
 
-.tokenomics {
-    margin-top: 12rem;
-}
 
 .tokenomics-table {
     width: 100%;
-    max-width: 90rem;
+    max-width: 103.5rem;
 
-    border-collapse: collapse;
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 1rem;
 }
 
 .tokenomics-table th,
 .tokenomics-table td {
-    padding: 2rem 0;
-
-    border-bottom: 0.1rem solid var(--gray);
+    height: 7.7rem;
+    padding: 1.5rem;
 
     font-size: 2rem;
-    text-align: left;
+    border-radius: 1.2rem;
 }
 
 .tokenomics-table th {
-    color: var(--gray);
+    background-color: var(--bg);
+    color: var(--white);
+
+    border: 0.1rem solid var(--gray);
+
     font-weight: 400;
+    text-align: left;
 }
 
 .tokenomics-table td {
-    color: var(--white);
-}
-
-.token-address {
-    max-width: 90rem;
-
-    margin-top: 4rem;
-    padding: 2rem;
-
-    overflow-x: auto;
-
-    border: 0.1rem solid var(--gray);
-    border-radius: 1.5rem;
-}
-
-.token-address code {
-    color: var(--accent);
-}
-
-.copy-button {
-    margin-left: 2rem;
-    padding: 1rem 2rem;
-
     background-color: var(--accent);
     color: var(--black);
 
-    border: 0;
-    border-radius: 1rem;
+    text-align: center;
 }
+
+.token-address {
+    width: 100%;
+    max-width: 103.5rem;
+    min-height: 7.7rem;
+
+    margin-top: 1rem;
+    padding: 0;
+
+    border: 0.1rem solid var(--gray);
+    border-radius: 1.5rem;
+
+    overflow-x: auto;
+}
+
+.token-address code {
+    display: inline-block;
+    padding: 2.4rem 2rem;
+
+    color: var(--white);
+    font-size: 1.6rem;
+    white-space: nowrap;
+}
+
+.copy-button {
+    float: right;
+
+    width: 24.5rem;
+    height: 7.7rem;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--accent);
+
+    border: 0;
+    border-radius: 0 1.5rem 1.5rem 0;
+}
+
+.copy-icon {
+    width: 2.6rem;
+    height: 3.2rem;
+}
+
 
 .start {
     margin-top: 15rem;
@@ -421,9 +528,10 @@ button {
 }
 
 .faq-button {
+    position: relative;
     width: 100%;
 
-    padding: 2.5rem 0;
+    padding: 2.5rem 4rem 2.5rem 0;
 
     background-color: transparent;
     color: var(--white);
@@ -433,6 +541,23 @@ button {
     font-family: "Space Grotesk", sans-serif;
     font-size: 2.4rem;
     text-align: left;
+}
+
+.faq-mail-icon {
+    width: 2.4rem;
+}
+
+.faq-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+
+    width: 1.6rem;
+    height: 1rem;
+
+    background: transparent url("../images/faq-chevron.svg") center / contain no-repeat;
+    transform: translateY(-50%);
 }
 
 .page-footer {
@@ -454,6 +579,13 @@ button {
     margin-right: 3rem;
 }
 
+.footer-socials img {
+    width: 2rem;
+    height: auto;
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
 .page-footer p {
     color: var(--gray);
     font-size: 1.4rem;
@@ -467,4 +599,156 @@ button {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.hero-graphic {
+    position: relative;
+
+    width: 75.7rem;
+    max-width: 100%;
+
+    margin-top: 5rem;
+}
+
+.hero-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+.hero-gradient {
+    position: absolute;
+
+    width: 5.9rem;
+    height: auto;
+
+    left: 34.9rem;
+    top: 16.3rem;
+}
+
+.start-image {
+    display: block;
+
+    width: 60rem;
+    max-width: 100%;
+    height: auto;
+
+    margin-top: 5rem;
+}
+
+.hero-wave {
+    display: block;
+
+    width: 29rem;
+    height: auto;
+
+    margin-top: 2rem;
+}
+
+.hero-title-accent {
+    color: var(--accent);
+}
+
+.hero .container {
+    position: relative;
+}
+
+.hero-circle {
+    position: absolute;
+
+    width: 16rem;
+    height: auto;
+
+    left: 69.7rem;
+    top: 1.4rem;
+}
+
+.button-icon {
+    display: inline-block;
+
+    height: auto;
+    margin-left: 1.5rem;
+
+    vertical-align: middle;
+}
+
+.button-icon-view {
+    width: 1.5rem;
+}
+
+.button-icon-buy {
+    width: 1.3rem;
+}
+
+.advantage-card {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 30%;
+    min-height: 24rem;
+
+    margin-right: 3%;
+    margin-bottom: 3rem;
+    padding: 3rem;
+
+    background-color: var(--bg);
+    color: var(--white);
+
+    border: 0.1rem solid var(--white);
+    border-radius: 1.5rem;
+
+    font-size: 1.8rem;
+}
+
+.advantage-card:nth-child(odd) {
+    background-color: var(--accent);
+    color: var(--black);
+
+    border-color: transparent;
+}
+
+.advantage-heading {
+    margin-bottom: 2rem;
+
+    font-size: 0;
+}
+
+.advantage-icon {
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 6rem;
+    max-height: 5.5rem;
+
+    margin-right: 1rem;
+}
+
+.advantage-title {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: var(--white);
+}
+
+.advantage-card:nth-child(odd) .advantage-title {
+    color: var(--black);
+}
+
+
+.nav-list .nav-brand-item {
+    margin-right: 6.5rem;
+}
+
+.nav-brand-logo,.footer-logo{
+    display: block;
+    width: 18rem;
+    height: auto;
 }
