@@ -113,7 +113,8 @@ button {
     margin: 0;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: 9rem;
+    font-size: clamp(4rem, 4.7vw, 9rem);
+    padding-top: 5rem;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -213,14 +214,15 @@ main {
 .hero-graphic::before {
     content: "";
     position: absolute;
+    inset: -20rem -12rem;
     z-index: -1;
-    top: -19rem;
-    left: -44.8rem;
-    width: 130.5rem;
-    height: 132.9rem;
     pointer-events: none;
 
-    background: transparent url("../images/hero-glow.svg") center / contain no-repeat;
+    background: radial-gradient(
+        ellipse closest-side,
+        rgba(227, 254, 15, 0.14),
+        transparent
+    );
 }
 
 .section-title {
@@ -233,27 +235,28 @@ main {
 }
 
 .advantages-list {
-    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
+
+
 
 .roadmap {
     margin-top: 20rem;
 }
 
 .roadmap-list {
+    display: flex;
+    justify-content: space-between;
+
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
 .roadmap-phase {
-    display: inline-block;
-    vertical-align: top;
-
-    width: 22%;
-
-    margin-right: 2%;
+    width: 19.5%;
 }
 
 .roadmap-number {
@@ -322,13 +325,22 @@ main {
     color: var(--accent);
 }
 
-.roadmap-phase:nth-child(4) .roadmap-tasks li {
+.roadmap-phase:nth-child(4) .roadmap-tasks li:nth-child(-n + 2) {
+    color: var(--white);
+}
+
+.roadmap-phase:nth-child(4) .roadmap-tasks li:nth-child(n + 3) {
+    filter: grayscale(1);
     opacity: 0.5;
 }
 
 .info-strip {
-    margin: 15rem 0 0;
-    padding: 2rem 5.2%;
+    width: 110%;
+    margin: 15rem 0 0 -5%;
+    padding: 3.8rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: rotate(-5deg);
 
     background-color: var(--accent);
     color: var(--black);
@@ -337,40 +349,53 @@ main {
     font-weight: 500;
 }
 
+.info-strip-lower {
+    transform: rotate(2deg);
+}
 
-.tokenomics-table {
-    width: 100%;
+.tokenomics {
+    margin-top: 12rem;
+}
+
+.tokenomics .container {
     max-width: 103.5rem;
-
-    table-layout: fixed;
-    border-collapse: separate;
-    border-spacing: 1rem;
 }
 
-.tokenomics-table th,
-.tokenomics-table td {
-    height: 7.7rem;
-    padding: 1.5rem;
-
-    font-size: 2rem;
-    border-radius: 1.2rem;
+.tokenomics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
 }
 
-.tokenomics-table th {
-    background-color: var(--bg);
-    color: var(--white);
-
+.tokenomics-item {
+    display: flex;
+    flex-basis: calc((100% - 2rem) / 2);
+    min-height: 7.7rem;
     border: 0.1rem solid var(--gray);
-
-    font-weight: 400;
-    text-align: left;
+    border-radius: 1.5rem;
+    font-size: 2rem;
 }
 
-.tokenomics-table td {
+.tokenomics-item dt,
+.tokenomics-item dd {
+    display: flex;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+.tokenomics-item dt {
+    flex: 1;
+}
+
+.tokenomics-item dd {
+    width: 48%;
+    margin: 0;
+    justify-content: flex-end;
+    text-align: right;
     background-color: var(--accent);
     color: var(--black);
-
-    text-align: center;
+    border-radius: 1.5rem;
 }
 
 .token-address {
@@ -385,6 +410,10 @@ main {
     border-radius: 1.5rem;
 
     overflow-x: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .token-address code {
@@ -397,13 +426,17 @@ main {
 }
 
 .copy-button {
-    float: right;
+    flex-shrink: 0;
 
     width: 24.5rem;
     height: 7.7rem;
 
     margin: 0;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 3rem;
+
 
     background-color: var(--accent);
 
@@ -421,16 +454,45 @@ main {
     margin-top: 15rem;
 }
 
+.start .section-title {
+    margin-bottom: 3.5rem;
+}
+
 .start p {
-    max-width: 80rem;
+    margin: 0;
+    color: var(--white);
+    font-size: 1.6rem;
+    line-height: 1.25;
+}
 
-    margin: 0 0 3rem;
-
-    color: var(--gray);
+.start p + p {
+    margin-top: 2rem;
 }
 
 .start .button {
-    margin-top: 3rem;
+    width: 56%;
+    margin-top: 4.8rem;
+    padding: 2rem 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.start .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.start-content {
+    width: 37%;
+}
+
+.start-image {
+    display: block;
+    width: 55%;
+    height: auto;
+    margin-top: 1.4rem;
 }
 
 .project-promo {
@@ -452,12 +514,14 @@ main {
     margin-top: 15rem;
 }
 
-.project-form {
-    max-width: 90rem;
+.submit-project .container {
+    max-width: 104.1rem;
 }
 
-.form-field {
-    margin-bottom: 3rem;
+.project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 .form-label {
@@ -470,10 +534,12 @@ main {
 }
 
 .form-control {
-    width: 80rem;
-    max-width: 90%;
+    width: 100%;
 
     padding: 1.5rem 2rem;
+
+    display: block;
+    min-height: 7.2rem; 
 
     background-color: transparent;
     color: var(--white);
@@ -489,9 +555,20 @@ main {
     min-height: 15rem;
 }
 
-.form-note {
-    max-width: 80rem;
+.submit-project .section-title {
+    margin-bottom: 6rem;
+}
 
+.form-control::placeholder {
+    color: var(--white);
+    opacity: 0.75;
+}
+
+.project-form .button {
+    min-height: 8rem;
+}
+
+.form-note {
     margin-top: 3rem;
 
     color: var(--gray);
@@ -502,36 +579,53 @@ main {
     margin-top: 15rem;
 }
 
-.faq-description {
-    max-width: 65rem;
+.faq .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
+.faq-intro {
+    width: 22%;
+}
+
+.faq-intro .section-title {
     margin-bottom: 3rem;
+}
 
-    color: var(--gray);
+.faq-description {
+    margin: 0 0 6rem;
+    color: var(--white);
+    font-size: 1.6rem;
+}
+
+.faq-intro .button {
+    color: var(--white);
+    border-color: var(--gray);
 }
 
 .faq-list {
-    max-width: 100rem;
-
-    margin: 7rem 0 0;
+    width: 55%;
+    margin: 0;
     padding: 0;
-
     list-style: none;
 }
 
 .faq-item {
-    border-top: 0.1rem solid var(--gray);
+    border: 0.1rem solid var(--gray);
+    border-radius: 1.5rem;
 }
 
-.faq-item:last-child {
-    border-bottom: 0.1rem solid var(--gray);
+.faq-item + .faq-item {
+    margin-top: 3.5rem;
 }
 
 .faq-button {
     position: relative;
     width: 100%;
 
-    padding: 2.5rem 4rem 2.5rem 0;
+    min-height: 8rem;
+    padding: 1.5rem 5rem 1.5rem 3rem;
 
     background-color: transparent;
     color: var(--white);
@@ -567,23 +661,32 @@ main {
     border-top: 0.1rem solid var(--gray);
 }
 
+.page-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
 .footer-list {
+    display: flex;
+    gap: 3rem;
+
     margin: 0 0 3rem;
     padding: 0;
-
     list-style: none;
 }
 
-.footer-list li {
-    display: inline-block;
-    margin-right: 3rem;
+.footer-socials {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
 }
 
 .footer-socials img {
     width: 2rem;
     height: auto;
-    margin-right: 1rem;
-    vertical-align: middle;
 }
 
 .page-footer p {
@@ -601,40 +704,11 @@ main {
     right: 0;
 }
 
-.hero-graphic {
-    position: relative;
-
-    width: 75.7rem;
-    max-width: 100%;
-
-    margin-top: 5rem;
-}
-
 .hero-image {
     display: block;
 
     width: 100%;
     height: auto;
-}
-
-.hero-gradient {
-    position: absolute;
-
-    width: 5.9rem;
-    height: auto;
-
-    left: 34.9rem;
-    top: 16.3rem;
-}
-
-.start-image {
-    display: block;
-
-    width: 60rem;
-    max-width: 100%;
-    height: auto;
-
-    margin-top: 5rem;
 }
 
 .hero-wave {
@@ -651,17 +725,35 @@ main {
 }
 
 .hero .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hero-content {
     position: relative;
+    width: 50%;
+}
+
+.hero-graphic {
+    position: relative;
+    width: 44%;
 }
 
 .hero-circle {
     position: absolute;
-
-    width: 16rem;
-    height: auto;
-
-    left: 69.7rem;
     top: 1.4rem;
+    right: 0;
+    width: 19%;
+    height: auto;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 25%;
+    left: 46%;
+    width: 8%;
+    height: auto;
 }
 
 .button-icon {
@@ -682,14 +774,8 @@ main {
 }
 
 .advantage-card {
-    display: inline-block;
-    vertical-align: top;
-
-    width: 30%;
+    flex-basis: calc((100% - 4rem) / 3);
     min-height: 24rem;
-
-    margin-right: 3%;
-    margin-bottom: 3rem;
     padding: 3rem;
 
     background-color: var(--bg);
