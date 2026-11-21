@@ -1,0 +1,213 @@
+@page {
+    margin: 16mm;
+}
+
+:root {
+    --bg: white;
+    --white: black;
+    --black: black;
+    --accent: black;
+    --gray: black;
+}
+
+body {
+    background: white;
+    color: black;
+    font: 11pt/1.35 Arial, sans-serif;
+}
+
+.container,
+.project-promo {
+    width: 100%;
+    max-width: none;
+}
+
+.page-header,
+.hero,
+.advantages,
+.roadmap,
+.tokenomics,
+.start,
+.project-promo,
+.faq {
+    margin: 0 0 5mm;
+}
+
+.main-nav,
+.hero .container,
+.advantages-list,
+.roadmap-list,
+.tokenomics-list,
+.start .container,
+.start-content,
+.faq .container,
+.faq-intro,
+.faq-description {
+    display: block;
+    background: none;
+}
+
+.main-nav {
+    min-height: 0;
+    padding: 0;
+}
+
+.nav-brand-logo {
+    width: 35mm;
+    filter: brightness(0);
+}
+
+.nav-dapp,
+.nav-menu,
+.nav-list,
+.hero-circle,
+.hero-wave,
+.hero-graphic,
+.hero-buttons,
+.advantage-icon,
+.advantages-toggle,
+.advantages-more,
+.advantages::before,
+.roadmap-tasks li::before,
+.strip-frame,
+.copy-button,
+.start-image,
+.button,
+.submit-project,
+.faq-button::after,
+.page-footer {
+    display: none;
+}
+
+.hero-content,
+.start-content,
+.faq-intro,
+.faq-list,
+.roadmap-phase {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.hero-title,
+.section-title,
+.start .section-title,
+.faq-intro .section-title {
+    max-width: none;
+    margin: 0 0 3mm;
+    padding: 0;
+    font-size: 18pt;
+    break-after: avoid;
+}
+
+.hero-title-line {
+    display: inline;
+}
+
+.hero-description,
+.faq-description,
+.start p,
+.project-promo {
+    max-width: none;
+    margin: 0 0 3mm;
+    font: inherit;
+    text-align: left;
+}
+
+.hero-stats {
+    justify-content: flex-start;
+    margin: 3mm 0;
+}
+
+.hero-stat-value,
+.advantage-title,
+.roadmap-number {
+    font-size: 13pt;
+}
+
+.advantages-toggle:not(:checked) ~ .advantages-list .advantage-card:nth-child(n + 3) {
+    display: block;
+}
+
+.advantage-card,
+.advantage-card:nth-child(odd),
+.roadmap-phase:nth-child(n) .roadmap-number,
+.tokenomics-item dd {
+    background: white;
+    color: black;
+    box-shadow: none;
+}
+
+.advantage-card,
+.roadmap-phase,
+.tokenomics-item,
+.token-address,
+.faq-item {
+    min-height: 0;
+    padding: 0;
+    margin: 0 0 3mm;
+    border: 0;
+    break-inside: avoid;
+}
+
+.advantage-heading,
+.advantage-card p {
+    margin: 0;
+}
+
+.roadmap-phase .roadmap-number {
+    width: auto;
+    aspect-ratio: auto;
+    display: block;
+    margin: 0 0 1mm;
+    border: 0;
+    text-align: left;
+}
+
+.roadmap-tasks {
+    padding-left: 5mm;
+    list-style: disc;
+}
+
+.roadmap-tasks li,
+.roadmap-phase:nth-child(4) .roadmap-tasks li:nth-child(n + 3) {
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    filter: none;
+}
+
+.tokenomics-item dt,
+.tokenomics-item dd,
+.token-address code {
+    padding: 0;
+    font-size: 11pt;
+}
+
+.tokenomics-item dt {
+    flex: 0 0 30mm;
+}
+
+.tokenomics .container {
+    container-type: normal;
+}
+
+.tokenomics-item dd {
+    width: auto;
+}
+
+.start p + p,
+.faq-item + .faq-item {
+    margin-top: 1mm;
+}
+
+.tokenomics-item,
+.faq-item {
+    margin-bottom: 1mm;
+}
+
+.faq-button {
+    min-height: 0;
+    padding: 0;
+    font: inherit;
+}
