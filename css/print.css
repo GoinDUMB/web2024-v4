@@ -13,7 +13,7 @@
 body {
     background: white;
     color: black;
-    font: 11pt/1.35 Arial, sans-serif;
+    font: 1.47rem/1.35 Arial, sans-serif;
 }
 
 .container,
@@ -57,6 +57,7 @@ body {
     filter: brightness(0);
 }
 
+.skip-link,
 .nav-dapp,
 .nav-menu,
 .nav-list,
@@ -65,16 +66,15 @@ body {
 .hero-graphic,
 .hero-buttons,
 .advantage-icon,
-.advantages-toggle,
 .advantages-more,
 .advantages::before,
 .roadmap-tasks li::before,
 .strip-frame,
 .copy-button,
+.copy-status,
 .start-image,
 .button,
 .submit-project,
-.faq-button::after,
 .page-footer {
     display: none;
 }
@@ -96,7 +96,7 @@ body {
     max-width: none;
     margin: 0 0 3mm;
     padding: 0;
-    font-size: 18pt;
+    font-size: 2.4rem;
     break-after: avoid;
 }
 
@@ -122,20 +122,16 @@ body {
 .hero-stat-value,
 .advantage-title,
 .roadmap-number {
-    font-size: 13pt;
-}
-
-.advantages-toggle:not(:checked) ~ .advantages-list .advantage-card:nth-child(n + 3) {
-    display: block;
+    font-size: 1.73rem;
 }
 
 .advantage-card,
-.advantage-card:nth-child(odd),
+.advantage-card:nth-of-type(odd),
 .roadmap-phase:nth-child(n) .roadmap-number,
 .tokenomics-item dd {
     background: white;
     color: black;
-    box-shadow: none;
+    outline: 0;
 }
 
 .advantage-card,
@@ -164,24 +160,26 @@ body {
     text-align: left;
 }
 
+.roadmap-number .sr-only {
+    position: static;
+    clip-path: none;
+}
+
 .roadmap-tasks {
     padding-left: 5mm;
     list-style: disc;
 }
 
-.roadmap-tasks li,
-.roadmap-phase:nth-child(4) .roadmap-tasks li:nth-child(n + 3) {
+.roadmap-tasks li {
     margin: 0;
     padding: 0;
-    opacity: 1;
-    filter: none;
 }
 
 .tokenomics-item dt,
 .tokenomics-item dd,
 .token-address code {
     padding: 0;
-    font-size: 11pt;
+    font-size: 1.47rem;
 }
 
 .tokenomics-item dt {
@@ -206,8 +204,7 @@ body {
     margin-bottom: 1mm;
 }
 
-.faq-button {
-    min-height: 0;
-    padding: 0;
+.faq-item {
+    display: list-item;
     font: inherit;
 }

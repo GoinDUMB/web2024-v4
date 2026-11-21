@@ -2,7 +2,7 @@
     --bg: #17161e;
     --accent: #e3fe0f;
     --white: #ffffff;
-    --gray: #838383;
+    --gray: #ababaf;
     --black: #000000;
     --gutter: clamp(1.5rem, calc(10vw - 2rem), 10rem);
     --section-gap: clamp(6rem, 8vw, 15rem);
@@ -10,7 +10,7 @@
 
 html {
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 0.625rem;
 }
 
 *,
@@ -32,7 +32,7 @@ body {
     color: var(--white);
 
     font-family: "IBM Plex Mono", monospace;
-    font-size: clamp(1.4rem, calc(1.2rem + 0.35vw), 1.8rem);
+    font-size: 1.4rem;
     line-height: 1.4;
 }
 
@@ -43,6 +43,47 @@ a {
 
 button {
     font: inherit;
+}
+
+:focus-visible {
+    outline: 0.3rem solid var(--accent);
+    outline-offset: 0.3rem;
+    box-shadow: 0 0 0 0.3rem var(--bg);
+}
+
+main:focus-visible {
+    outline-offset: -0.3rem;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0.6rem;
+    left: var(--gutter);
+    z-index: 2;
+    padding: 1rem 1.5rem;
+    background: var(--accent);
+    color: var(--black);
+    transform: translateY(-150%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+.button:disabled,
+.nav-dapp:disabled {
+    border-style: dashed;
+}
+
+.nav-unavailable {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--gray);
 }
 
 img {
@@ -73,13 +114,14 @@ img {
     display: grid;
     place-items: center;
     margin-left: auto;
+    background: transparent;
     width: clamp(9.1rem, 12vw, 21rem);
     min-height: clamp(3.4rem, 3.8vw, 6rem);
     color: var(--accent);
     border: 0.2rem solid var(--accent);
     border-radius: 1.5rem;
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.5rem, 1.4vw, 2rem);
+    font-size: 1.6rem;
 }
 
 .nav-list,
@@ -112,7 +154,7 @@ img {
 }
 
 .nav-menu summary span,
-.advantages-toggle {
+.sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -142,13 +184,15 @@ img {
     top: 100%;
     right: 0;
     width: max-content;
+    max-width: calc(100vw - 2 * var(--gutter));
     padding: 0.6rem;
     background: var(--bg);
     border: 1px solid var(--gray);
     border-radius: 1rem;
 }
 
-.nav-sections a {
+.nav-sections a,
+.nav-sections .nav-unavailable {
     display: block;
     padding: 0.7rem 1.2rem;
 }
@@ -167,7 +211,7 @@ img {
     margin: 0;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(3.2rem, 9vw, 4.8rem);
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -196,7 +240,7 @@ img {
     padding: clamp(1rem, 1vw, 1.8rem) clamp(1rem, 1.6vw, 3rem);
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.6rem, 1.6vw, 2.4rem);
+    font-size: 1.6rem;
     line-height: 1.4;
 
     border-radius: 1.5rem;
@@ -235,14 +279,14 @@ img {
 
 .hero-stat-label {
     color: var(--gray);
-    font-size: clamp(1.2rem, 1.1vw, 1.6rem);
+    font-size: 1.4rem;
 }
 
 .hero-stat-value {
     margin: 0;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2.2rem, 2.2vw, 3.2rem);
+    font-size: 2.2rem;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -293,7 +337,7 @@ main {
     margin: 0 0 clamp(2.8rem, 3.65vw, 7rem);
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2.8rem, 3.8vw, 6.4rem);
+    font-size: 2.8rem;
     font-weight: 700;
     line-height: 1.2;
 }
@@ -301,26 +345,6 @@ main {
 .advantages-list {
     display: grid;
     gap: clamp(1rem, 1.25vw, 2rem);
-}
-
-.advantages-toggle:not(:checked) ~ .advantages-more .less-text,
-.advantages-toggle:checked ~ .advantages-more .more-text {
-    display: none;
-}
-
-.advantages-more {
-    display: block;
-    width: fit-content;
-    margin: 1.6rem auto 0;
-    padding: 1rem;
-    text-decoration: underline;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.advantages-toggle:focus-visible ~ .advantages-more {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
 }
 
 .roadmap {
@@ -349,7 +373,7 @@ main {
     border-radius: 50%;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2rem, 2.6vw, 5rem);
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1;
     text-align: center;
@@ -357,7 +381,8 @@ main {
 
 .roadmap-phase:nth-child(3) .roadmap-number {
     background-color: var(--accent);
-    box-shadow: 0 0.4rem 1.5rem rgba(227, 254, 15, 0.25);
+    outline: 0.2rem solid var(--accent);
+    outline-offset: 0.3rem;
 }
 
 .roadmap-phase:nth-child(4) .roadmap-number {
@@ -406,11 +431,6 @@ main {
     color: var(--white);
 }
 
-.roadmap-phase:nth-child(4) .roadmap-tasks li:nth-child(n + 3) {
-    filter: grayscale(1);
-    opacity: 0.5;
-}
-
 /* Рамка обрезает только выступающие концы наклонной ленты. */
 .strip-frame {
     --angle: -5deg;
@@ -427,6 +447,7 @@ main {
 
 .info-strip {
     width: 104%;
+    overflow: clip;
     margin: 0 -2%;
     padding: clamp(1.3rem, 2vw, 3.8rem) 0;
     padding-left: max(1rem, 2%);
@@ -436,8 +457,14 @@ main {
     background-color: var(--accent);
     color: var(--black);
 
-    font-size: clamp(1.2rem, 1.3vw, 1.6rem);
+    font-size: 1.2rem;
     font-weight: 500;
+}
+
+.info-strip span::after {
+    content: attr(data-repeat) attr(data-repeat) attr(data-repeat) attr(data-repeat)
+        attr(data-repeat) attr(data-repeat) attr(data-repeat);
+    background-color: var(--accent);
 }
 
 .tokenomics {
@@ -461,7 +488,7 @@ main {
 
     border: 0.1rem solid var(--gray);
     border-radius: 1.5rem;
-    font-size: clamp(1.6rem, 1.6vw, 2rem);
+    font-size: 1.6rem;
 }
 
 .tokenomics-item dt,
@@ -515,6 +542,19 @@ main {
 
     border: 0;
     border-radius: 0 1.5rem 1.5rem 0;
+}
+
+.copy-button[hidden] {
+    display: none;
+}
+
+.copy-status {
+    margin: 0.8rem 0 0;
+    font-size: 1.4rem;
+}
+
+.copy-status:empty {
+    margin: 0;
 }
 
 .copy-icon {
@@ -573,7 +613,7 @@ main {
     margin: var(--section-gap) auto;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2.2rem, 2.6vw, 4rem);
+    font-size: 2.2rem;
     line-height: 1.3;
 }
 
@@ -659,8 +699,8 @@ main {
 }
 
 .faq-description {
-    display: none;
-    margin: 0 0 clamp(2rem, 3.2vw, 6rem);
+    order: -1;
+    margin: 0;
     font-size: 1.6rem;
 }
 
@@ -678,6 +718,12 @@ main {
 }
 
 .faq-item {
+    display: flex;
+    align-items: center;
+    min-height: clamp(5rem, 6vw, 8rem);
+    padding: 1.5rem clamp(1.5rem, 2vw, 3rem);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.6rem;
     border: 0.1rem solid var(--gray);
     border-radius: 1.5rem;
 }
@@ -686,38 +732,8 @@ main {
     margin-top: clamp(1rem, 1.8vw, 3.5rem);
 }
 
-.faq-button {
-    position: relative;
-    width: 100%;
-
-    min-height: clamp(5rem, 6vw, 8rem);
-    padding: 1.5rem 4.5rem 1.5rem clamp(1.5rem, 2vw, 3rem);
-
-    background-color: transparent;
-    color: var(--white);
-
-    border: 0;
-
-    font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(1.6rem, 1.6vw, 2.4rem);
-    text-align: left;
-}
-
 .faq-mail-icon {
     width: 2.4rem;
-}
-
-.faq-button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 1.5rem;
-
-    width: 1.6rem;
-    height: 1rem;
-
-    background: transparent url("../images/faq-chevron.svg") center / contain no-repeat;
-    transform: translateY(-50%);
 }
 
 .page-footer {
@@ -840,11 +856,9 @@ main {
 
     border: 0.1rem solid var(--white);
     border-radius: 1.5rem;
-
-    font-size: inherit;
 }
 
-.advantage-card:nth-child(odd) {
+.advantage-card:nth-of-type(odd) {
     background-color: var(--accent);
     color: var(--black);
 
@@ -866,21 +880,36 @@ main {
     margin: 0;
 
     font-family: "Space Grotesk", sans-serif;
-    font-size: clamp(2.2rem, 2.2vw, 3.2rem);
+    font-size: 2.2rem;
     font-weight: 500;
     line-height: 1.2;
 
-    color: var(--white);
+    color: inherit;
 }
 
-.advantage-card:nth-child(odd) .advantage-title {
-    color: var(--black);
-}
+/* Без экранных стилей видны все карточки, а переключатель скрыт в HTML. */
+@media screen and (width < 600px) {
+    .advantages-more {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        justify-self: center;
+        padding: 1rem;
+        cursor: pointer;
+    }
 
-/* Узкий список раскрывается переключателем MORE. */
-@media (width < 600px) {
-    .advantages-toggle:not(:checked) ~ .advantages-list .advantage-card:nth-child(n + 3) {
+    .advantages-toggle {
+        accent-color: var(--accent);
+    }
+
+    .advantages-more:has(input:not(:checked)) ~ .advantage-card {
         display: none;
+    }
+}
+
+@media screen and (width < 900px) {
+    .compact-link {
+        display: list-item;
     }
 }
 
@@ -891,14 +920,8 @@ main {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .advantages-list {
-        grid-template-rows: repeat(3, auto);
-        grid-auto-flow: column;
-    }
-
-    .advantages-toggle,
-    .advantages-more {
-        display: none;
+    .section-title {
+        font-size: 3.6rem;
     }
 
     .hero-content {
@@ -909,6 +932,7 @@ main {
     .hero-title {
         max-width: 40.5rem;
         margin-inline: auto;
+        font-size: 4.8rem;
     }
 
     .hero-wave {
@@ -945,6 +969,26 @@ main {
 
 /* Полная навигация и двухколоночные секции помещаются по ширине. */
 @media (min-width: 900px) {
+    body,
+    .info-strip {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 4rem;
+    }
+
+    .button,
+    .faq-item,
+    .tokenomics-item {
+        font-size: 1.8rem;
+    }
+
+    .roadmap-number,
+    .project-promo {
+        font-size: 2.6rem;
+    }
+
     .main-nav {
         min-height: clamp(4.5rem, 3.8vw, 6rem);
         padding-left: clamp(2rem, 1.6vw, 3rem);
@@ -982,8 +1026,7 @@ main {
     }
 
     .nav-menu summary::before,
-    .nav-menu summary::after,
-    .compact-link {
+    .nav-menu summary::after {
         display: none;
     }
 
@@ -1012,7 +1055,7 @@ main {
         max-width: none;
         margin: 0;
         padding-top: min(0.73vw, 1.4rem);
-        font-size: clamp(4rem, 4.7vw, 9rem);
+        font-size: 4.4rem;
     }
 
     .hero-wave {
@@ -1053,9 +1096,12 @@ main {
     .start-content,
     .faq-intro,
     .footer-brand,
-    .footer-links,
-    .faq-description {
+    .footer-links {
         display: block;
+    }
+
+    .faq-description {
+        margin-bottom: clamp(2rem, 3.2vw, 6rem);
     }
 
     .start-content,
@@ -1108,10 +1154,34 @@ main {
 
 /* Три карточки в ряд и пропорции широкого макета. */
 @media (min-width: 1200px) {
+    body {
+        font-size: 1.8rem;
+    }
+
+    .hero-title {
+        font-size: 5.6rem;
+    }
+
+    .section-title {
+        font-size: 4.8rem;
+    }
+
+    .button,
+    .faq-item,
+    .nav-dapp,
+    .tokenomics-item {
+        font-size: 2rem;
+    }
+
+    .advantage-title,
+    .hero-stat-value,
+    .project-promo,
+    .roadmap-number {
+        font-size: 3.2rem;
+    }
+
     .advantages-list {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: none;
-        grid-auto-flow: row;
     }
 
     .advantage-card {
@@ -1142,5 +1212,33 @@ main {
     .faq-intro {
         width: 26%;
         max-width: 38rem;
+    }
+}
+
+/* У крупного заголовка на широком экране помещается исходный кегль. */
+@media (min-width: 1800px) {
+    .hero-title {
+        font-size: 9rem;
+    }
+
+    .section-title {
+        font-size: 6.4rem;
+    }
+
+    .button,
+    .faq-item {
+        font-size: 2.4rem;
+    }
+
+    .project-promo {
+        font-size: 4rem;
+    }
+
+    .roadmap-number {
+        font-size: 5rem;
+    }
+
+    .hero-stat-label {
+        font-size: 1.6rem;
     }
 }

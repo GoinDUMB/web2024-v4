@@ -21,13 +21,14 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="page-header" id="top">
         <div class="container">
-            <nav class="main-nav" aria-label="Main navigation">
+            <nav class="main-nav" aria-label="Main">
                 <a class="nav-brand" href="#top">
-                    <img class="nav-brand-logo" src="images/logo.svg" alt="HexaCore">
+                    <img class="nav-brand-logo" src="images/logo.svg" alt="HexaCore, back to top">
                 </a>
-                <a class="nav-dapp" href="#">dApp</a>
+                <button class="nav-dapp" type="button" disabled>dApp</button>
                 <details class="nav-menu">
                     <summary><span>Menu</span></summary>
                     <ul class="nav-sections">
@@ -37,21 +38,21 @@
                         <li><a href="#start">Start</a></li>
                         <li><a href="#submit-project">Submit your project</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li class="compact-link"><a href="#footer-socials">Socials</a></li>
-                        <li class="compact-link"><a href="#">Docs</a></li>
-                        <li class="compact-link"><a href="#">Buy</a></li>
+                        <li class="compact-link" hidden><a href="#footer-socials">Socials</a></li>
+                        <li class="compact-link" hidden><button class="nav-unavailable" type="button" disabled>Docs</button></li>
+                        <li class="compact-link" hidden><button class="nav-unavailable" type="button" disabled>Buy</button></li>
                     </ul>
                 </details>
                 <ul class="nav-list">
                     <li><a href="#footer-socials">Socials</a></li>
-                    <li><a href="#">Docs</a></li>
-                    <li><a href="#">Buy</a></li>
+                    <li><button class="nav-unavailable" type="button" disabled>Docs</button></li>
+                    <li><button class="nav-unavailable" type="button" disabled>Buy</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -75,15 +76,15 @@
                     </p>
 
                     <div class="hero-buttons">
-                        <a class="button button-primary" href="#">
+                        <button class="button button-primary" type="button" disabled>
                             View Node
                             <img
                                 class="button-icon button-icon-view"
                                 src="images/view-node-icon.svg"
                                 alt=""
                             >
-                        </a>
-                        <button class="button button-outline" type="button">
+                        </button>
+                        <button class="button button-outline" type="button" disabled>
                             Buy $GPU
                             <img
                                 class="button-icon button-icon-buy"
@@ -127,9 +128,7 @@
             <div class="container">
                 <h2 class="section-title">Why choose us</h2>
 
-                <input class="advantages-toggle" type="checkbox" id="all-advantages"
-                       aria-label="Show all six advantages" aria-controls="advantages-list">
-                <div class="advantages-list" id="advantages-list">
+                <div class="advantages-list">
 
                     <div class="advantage-card">
                         <div class="advantage-heading">
@@ -168,6 +167,11 @@
                         </p>
                     </div>
 
+
+                    <label class="advantages-more" hidden>
+                        <input class="advantages-toggle" type="checkbox">
+                        Show all six advantages
+                    </label>
 
                     <div class="advantage-card">
                         <div class="advantage-heading">
@@ -245,9 +249,6 @@
                     </div>
 
                 </div>
-                <label class="advantages-more" for="all-advantages">
-                    <span class="more-text">More</span><span class="less-text">Less</span>
-                </label>
             </div>
         </section>
         <section id="roadmap" class="roadmap">
@@ -256,7 +257,7 @@
 
                 <ol class="roadmap-list">
                     <li class="roadmap-phase">
-                        <h3 class="roadmap-number">01</h3>
+                        <h3 class="roadmap-number"><span><span class="sr-only">Phase </span>01</span></h3>
 
                         <ul class="roadmap-tasks">
                             <li>Launch NodeAI Website &amp; Dapp</li>
@@ -268,7 +269,7 @@
                     </li>
 
                     <li class="roadmap-phase">
-                        <h3 class="roadmap-number">02</h3>
+                        <h3 class="roadmap-number"><span><span class="sr-only">Phase </span>02</span></h3>
 
                         <ul class="roadmap-tasks">
                             <li>Launch NodeAI Website &amp; Dapp</li>
@@ -280,7 +281,7 @@
                     </li>
 
                     <li class="roadmap-phase">
-                        <h3 class="roadmap-number">03</h3>
+                        <h3 class="roadmap-number"><span><span class="sr-only">Highlighted phase </span>03</span></h3>
 
                         <ul class="roadmap-tasks">
                             <li>Launch NodeAI Website &amp; Dapp</li>
@@ -292,11 +293,11 @@
                     </li>
 
                     <li class="roadmap-phase">
-                        <h3 class="roadmap-number">04</h3>
+                        <h3 class="roadmap-number"><span><span class="sr-only">Phase </span>04</span></h3>
 
                         <ul class="roadmap-tasks">
-                            <li>Launch NodeAI Website &amp; Dapp</li>
-                            <li>$GPU Fair Launch</li>
+                            <li><strong><span class="sr-only">Highlighted task. </span>Launch NodeAI Website &amp; Dapp</strong></li>
+                            <li><strong><span class="sr-only">Highlighted task. </span>$GPU Fair Launch</strong></li>
                             <li>Stake to Earn Rewards</li>
                             <li>Build &amp; Grow Community</li>
                             <li>Referral Program</li>
@@ -306,12 +307,8 @@
             </div>
         </section>
         <div class="strip-frame">
-            <p class="info-strip">
-                Important information for all customers!<span aria-hidden="true">***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!</span>
-            </p>
+            <p class="info-strip">Important information for all customers!<span aria-hidden="true"
+                data-repeat="***Important information for all customers!"></span></p>
         </div>
         <section id="tokenomics" class="tokenomics">
             <div class="container">
@@ -345,13 +342,15 @@
                 </dl>
 
                 <div class="token-address">
-                    <code>0x1258d60b224c0c5cd888d37bbf31aa5fcfb7e870</code>
+                    <span class="sr-only">Token address </span>
+                    <code id="token-address" tabindex="-1">0x1258d60b224c0c5cd888d37bbf31aa5fcfb7e870</code>
 
                     <button
                         class="copy-button"
                         type="button"
-                        aria-label="Copy token address"
+                        hidden
                     >
+                        <span class="sr-only">Copy token address</span>
                         <img
                             class="copy-icon"
                             src="images/copy-icon.svg"
@@ -359,15 +358,12 @@
                         >
                     </button>
                 </div>
+                <p class="copy-status" role="status"></p>
             </div>
         </section>
         <div class="strip-frame strip-frame-lower">
-            <p class="info-strip">
-                Important information for all customers!<span aria-hidden="true">***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!
-                    ***Important information for all customers!***Important information for all customers!</span>
-            </p>
+            <p class="info-strip">Important information for all customers!<span aria-hidden="true"
+                data-repeat="***Important information for all customers!"></span></p>
         </div>
         <section id="start" class="start">
             <div class="container">
@@ -390,7 +386,7 @@
                         the urgent need for a personnel training system that meets urgent needs.
                     </p>
 
-                    <a class="button button-primary" href="#submit-project">Get started</a>
+                    <a class="button button-primary" href="#submit-project">Submit your project</a>
                 </div>
 
                 <img
@@ -406,9 +402,9 @@
         </p>
         <section id="submit-project" class="submit-project">
             <div class="container">
-                <h2 class="section-title">Submit your project</h2>
+                <h2 class="section-title" id="form-title">Submit your project</h2>
 
-                <form class="project-form">
+                <form class="project-form" aria-labelledby="form-title" aria-describedby="form-note">
                     <div class="form-field">
                         <label class="form-label" for="project-name">Project Name</label>
                         <input
@@ -437,6 +433,7 @@
                             type="text"
                             id="name"
                             name="name"
+                            autocomplete="name"
                             placeholder="Enter your name"
                         >
                     </div>
@@ -448,16 +445,16 @@
                             type="email"
                             id="email"
                             name="email"
+                            autocomplete="email"
                             placeholder="Enter email"
                         >
                     </div>
 
-                    <button class="button button-primary" type="submit">Send</button>
+                    <button class="button button-primary" type="submit" disabled>Send</button>
                 </form>
 
-                <p class="form-note">
-                    By submitting this form, you consent to the collection and processing
-                    of your personal data in accordance with our privacy policy.
+                <p class="form-note" id="form-note">
+                    You can fill in this demo form. Project submission is unavailable.
                 </p>
             </div>
         </section>
@@ -467,80 +464,77 @@
                     <h2 class="section-title">FAQ</h2>
 
                     <p class="faq-description">
-                        In this section we have posted answers to frequently asked questions.
-                        If you have another question, you can email us.
+                        Answers and a contact email address are currently unavailable.
                     </p>
 
-                    <a class="button button-outline" href="#">
+                    <button class="button button-outline" type="button" disabled>
                         Write to us
                         <img class="button-icon faq-mail-icon" src="images/faq-mail.svg" alt="">
-                    </a>
+                    </button>
                 </div>
 
                 <ul class="faq-list">
-                    <li class="faq-item">
-                        <button class="faq-button" type="button">
-                            How much will I earn by staking $GPU?
-                        </button>
-                    </li>
-
-                    <li class="faq-item">
-                        <button class="faq-button" type="button">
-                            How do I buy $GPU?
-                        </button>
-                    </li>
-
-                    <li class="faq-item">
-                        <button class="faq-button" type="button">
-                            How secure is a GPU Node?
-                        </button>
-                    </li>
-
-                    <li class="faq-item">
-                        <button class="faq-button" type="button">
-                            How can I access my Node?
-                        </button>
-                    </li>
-
-                    <li class="faq-item">
-                        <button class="faq-button" type="button">
-                            How much will I earn by staking $GPU?
-                        </button>
-                    </li>
+                    <li class="faq-item">How much will I earn by staking $GPU?</li>
+                    <li class="faq-item">How do I buy $GPU?</li>
+                    <li class="faq-item">How secure is a GPU Node?</li>
+                    <li class="faq-item">How can I access my Node?</li>
                 </ul>
             </div>
         </section>
     </main>
-<footer class="page-footer">
-    <div class="container">
-        <div class="footer-brand">
-            <a href="#top">
-                <img class="footer-logo" src="images/logo.svg" alt="HexaCore">
-            </a>
-            <p>&copy; NFTNode, 2024</p>
-        </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="footer-brand">
+                <a href="#top">
+                    <img class="footer-logo" src="images/logo.svg" alt="HexaCore, back to top">
+                </a>
+                <p>&copy; NFTNode, 2024</p>
+            </div>
 
-        <div class="footer-links">
-            <nav aria-label="Footer">
-                <ul class="footer-list">
-                    <li><a href="#advantages">Advantages</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#tokenomics">Tokenomics</a></li>
-                    <li><a href="#start">Start</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#">Buy</a></li>
-                </ul>
-            </nav>
+            <div class="footer-links">
+                <nav aria-label="Footer">
+                    <ul class="footer-list">
+                        <li><a href="#advantages">Advantages</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#tokenomics">Tokenomics</a></li>
+                        <li><a href="#start">Start</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><button class="nav-unavailable" type="button" disabled>Buy</button></li>
+                    </ul>
+                </nav>
 
-            <div class="footer-socials" id="footer-socials">
-                <img src="images/footer-social-1.svg" alt="">
-                <img src="images/footer-social-2.svg" alt="">
-                <img src="images/footer-telegram.svg" alt="">
-                <img src="images/footer-x.svg" alt="">
+                <div class="footer-socials" id="footer-socials" tabindex="-1">
+                    <span class="sr-only">Social platforms</span>
+                    <img src="images/footer-social-1.svg" alt="DEXTools">
+                    <img src="images/footer-social-2.svg" alt="Etherscan">
+                    <img src="images/footer-telegram.svg" alt="Telegram">
+                    <img src="images/footer-x.svg" alt="X">
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+    <script>
+        const address = document.getElementById('token-address');
+        const copyButton = document.querySelector('.copy-button');
+        const copyStatus = document.querySelector('.copy-status');
+
+        copyButton.hidden = false;
+        copyButton.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(address.textContent);
+                copyStatus.textContent = 'Token address copied.';
+            } catch {
+                const range = document.createRange();
+                range.selectNodeContents(address);
+                address.focus();
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+                copyStatus.textContent = 'Address selected. Use your device’s Copy command.';
+            }
+        });
+    </script>
 </body>
 
 </html>
